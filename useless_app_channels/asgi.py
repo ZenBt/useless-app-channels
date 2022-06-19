@@ -19,5 +19,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'useless_app_channels.settings')
 
 application = ProtocolTypeRouter({
     'http': get_asgi_application(),
-    'ws': AuthMiddlewareStack(URLRouter(ws_urlpatterns))
+    'websocket': AuthMiddlewareStack(URLRouter(ws_urlpatterns)),
 })
