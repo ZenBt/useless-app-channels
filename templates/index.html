@@ -8,5 +8,12 @@
 </head>
 <body>
     <h1 id="counter">{{text}}</h1>
+    <script>
+        var socket = new WebSocket('ws://localhost:8000/numbers');
+        socket.onmessage = function(event){
+            var data = JSON.parse(event.data);
+            document.querySelector('#counter').innerHTML = data.num;
+        }
+    </script>
 </body>
 </html>
